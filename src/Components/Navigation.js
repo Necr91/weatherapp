@@ -5,61 +5,35 @@ import { connect } from 'react-redux';
 import { townSelect, loadWeatherData } from '../actions/index';
 
 let Navigation = ({ dispatch }) => {
-    return (
+    const towns = [        
+        { 'New York': '5128638' },
+        { 'Moscow': '524901' },
+        { 'Tokyo': '1850147' }
+    ]           
+            
+    return (        
         <Grid columns={5} centered>
-        <Grid.Column textAlign='center'>
-            <List selection size='massive' horizontal>
-                <Icon name='marker'/>
-                <List.Item>            
-                    <List.Content>
-                        <List.Header onClick={e => {
-                            dispatch(townSelect(e.target.id));
-                            dispatch(loadWeatherData());
-                        }}
-                        id='5128638'
-                        as={Link} to='/1'>
-                        New York
-                        </List.Header>
-                    </List.Content>
-                </List.Item>     
-            </List>          
-        </Grid.Column>
-        <Grid.Column textAlign='center'>
-            <List selection size='massive' horizontal>
-                <Icon name='marker'/>
-                <List.Item>            
-                    <List.Content>
-                        <List.Header onClick={e => {
-                            dispatch(townSelect(e.target.id));
-                            dispatch(loadWeatherData());
-                        }}
-                        id='524901'
-                        as={Link} to='/2'>
-                        Moscow
-                        </List.Header>
-                    </List.Content>
-                </List.Item>     
-            </List>        
-        </Grid.Column>
-        <Grid.Column textAlign='center'>
-            <List selection size='massive' horizontal>
-                <Icon name='marker'/>
-                <List.Item>            
-                    <List.Content>
-                        <List.Header onClick={e => {
-                            dispatch(townSelect(e.target.id));
-                            dispatch(loadWeatherData());
-                        }}
-                        id='1850147'
-                        as={Link} to='/3'>
-                        Tokyo
-                        </List.Header>
-                    </List.Content>
-                </List.Item>     
-            </List>          
-        </Grid.Column>
+            {towns.map((item, index) => {
+                return (
+                    <Grid.Column textAlign='center' key={index}>
+                        <List selection size='massive' horizontal>
+                            <Icon name='marker'/>
+                            <List.Item>            
+                                <List.Content>
+                                    <List.Header onClick={e => {
+                                    dispatch(townSelect(e.target.id));
+                                    dispatch(loadWeatherData());
+                                    }}
+                                    id={Object.values(item)} as={Link} to='/1'>
+                                    {Object.keys(item)}
+                                    </List.Header>
+                                </List.Content>
+                            </List.Item>     
+                        </List>          
+                    </Grid.Column>
+                )                
+            })}        
     </Grid>
-
     )
 }
 

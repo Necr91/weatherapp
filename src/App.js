@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Navigation from './Components/Navigation'
 import WeatherDataContainer from './Containers/WeatherDataContainer';
+import Navigation from './Components/Navigation';
 import Header from './Components/Header';
 
 
