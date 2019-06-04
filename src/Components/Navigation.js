@@ -24,7 +24,7 @@ let Navigation = ({ dispatch }) => {
                                     dispatch(townSelect(e.target.id));
                                     dispatch(loadWeatherData());
                                     }}
-                                    id={Object.values(item)} as={Link} to='/1'>
+                                    id={Object.values(item)} as={Link} to={`/${Object.values(item)}`}>
                                     {Object.keys(item)}
                                     </List.Header>
                                 </List.Content>
