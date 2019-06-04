@@ -4,7 +4,8 @@ export const TOWN_SELECT = 'TOWN_SELECT';
 
 export function loadWeatherData() {
     return {
-        type: LOAD_WEATHER_DATA
+        type: LOAD_WEATHER_DATA,
+        id: window.location.pathname.slice(1)
     };
 }
 

@@ -11,7 +11,8 @@ export default function weatherApp(state = initialState, actions) {
         case LOAD_WEATHER_DATA:
             return {
                 ...state,
-                loading: true
+                loading: true,
+                id: actions.id
             }
         case LOADING_SUCCES:
             return {
