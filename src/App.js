@@ -16,11 +16,7 @@ let App = ({loading}) => {
     <div>
       <Header/>
       <Route exact path='/' component={Navigation}/>
-      <Route path='/:towns' render={() => (
-        loading
-        ? <Navigation/>
-        : <WeatherDataContainer/>
-      )}/>
+      <Route path='/:towns' component={WeatherDataContainer}/>
     </div>
   );
 }
