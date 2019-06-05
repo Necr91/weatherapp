@@ -1,5 +1,5 @@
-import { call, put, take, takeEvery } from 'redux-saga/effects';
-import { LOADING_SUCCES, LOAD_WEATHER_DATA} from '../actions/index';
+import { call, put, take, takeEvery, all } from 'redux-saga/effects';
+import { LOADING_SUCCES, TOWN_SELECT} from '../actions/index';
 
 export function* fetchWeatherData() {
     const select = yield take('TOWN_SELECT');         
@@ -9,6 +9,10 @@ export function* fetchWeatherData() {
     yield put({ type: LOADING_SUCCES, data, loading: false });
 }
 
-export default function* loading() {
-    yield takeEvery(LOAD_WEATHER_DATA, fetchWeatherData);
+export function* loading() {
+    yield takeEvery(TOWN_SELECT, fetchWeatherData);
+}
+
+export default function* rootSaga() {
+    yield all([loading()]);
 }

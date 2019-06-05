@@ -2,9 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, List, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { townSelect, loadWeatherData } from '../actions/index';
 
-let Navigation = ({ dispatch }) => {
+let Navigation = () => {
     const towns = [        
         { 'New York': '5128638' },
         { 'Moscow': '524901' },
@@ -20,10 +19,7 @@ let Navigation = ({ dispatch }) => {
                             <Icon name='marker'/>
                             <List.Item>            
                                 <List.Content>
-                                    <List.Header onClick={e => {
-                                    dispatch(townSelect(e.target.id));
-                                    dispatch(loadWeatherData());
-                                    }}
+                                    <List.Header 
                                     id={Object.values(item)} as={Link} to={`/${Object.values(item)}`}>
                                     {Object.keys(item)}
                                     </List.Header>
