@@ -7,7 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 
 import App from './App';
-import { townSelect } from './actions/index';
 import weatherApp from './reducers/index';
 import rootSaga from './sagas/index';
 
@@ -21,8 +20,6 @@ const store = createStore(
 );
 
 sagaMiddleware.run(rootSaga);
-
-store.dispatch(townSelect());
 
 ReactDOM.render(
     <Provider store={store}>        
