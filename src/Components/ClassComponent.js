@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { List, Loader, Container, Segment, Header } from 'semantic-ui-react';
-import { townSelect } from '../actions/index'
 
-const mapStateToProps = (state, {match: {params}} ) => {
-    return {
-        data: state.data,
-        loading: state.loading,
-        id: params.id
-    };
-};
-class WeatherDataContainer extends Component {
+class ClasComponent extends Component {
     componentDidMount() {        
         this.props.townSelect(this.props.id)               
     }
@@ -49,6 +39,4 @@ class WeatherDataContainer extends Component {
     }
 }
 
-WeatherDataContainer = withRouter(connect(mapStateToProps, {townSelect})(WeatherDataContainer));
-
-export default WeatherDataContainer;
+export default ClasComponent;
