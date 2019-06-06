@@ -13,8 +13,15 @@ const mapStateToProps = (state, {match: {params}} ) => {
 };
 class WeatherDataContainer extends Component {
     componentDidMount() {        
-            this.props.townSelect(this.props.id)               
+        this.props.townSelect(this.props.id)               
     }
+
+    componentDidUpdate(prevProps){        
+        if (this.props.id === prevProps.id && this.props.loading) {
+            this.props.townSelect(this.props.id);
+        }
+    }
+
     render() {
         return (
             this.props.loading

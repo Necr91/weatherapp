@@ -17,9 +17,9 @@ export default function weatherApp(state = initialState, actions) {
             };
         case TOWN_SELECT:
             return {
-                ...state,
+                
                 loading: true,
-                id: actions.id || window.location.pathname.slice(1)
+                id: actions.id
             };
         default:
             return state;
