@@ -8,7 +8,7 @@ import 'semantic-ui-css/semantic.min.css';
 
 import App from './App';
 import weatherApp from './reducers/index';
-import rootSaga from './sagas/index';
+import loading from './sagas/index';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -19,7 +19,7 @@ const store = createStore(
     composeEnhancers( applyMiddleware(sagaMiddleware) )
 );
 
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(loading);
 
 ReactDOM.render(
     <Provider store={store}>        

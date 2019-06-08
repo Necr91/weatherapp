@@ -4,6 +4,7 @@ export const TOWN_SELECT = 'TOWN_SELECT';
 export function townSelect(id) {
     return {
         type: TOWN_SELECT,
-        id
+        id,
+        loading: true
     };
 }

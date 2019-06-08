@@ -20,8 +20,9 @@ let Navigation = () => {
                             <List.Item>            
                                 <List.Content>
                                     <List.Header 
-                                    id={Object.values(item)} as={Link} to={`/class/${Object.values(item)}`}>
-                                    {Object.keys(item)}
+                                        id={Object.values(item)}
+                                        as={Link} to={`/function/${Object.values(item)}`}
+                                    >{Object.keys(item)}
                                     </List.Header>
                                 </List.Content>
                             </List.Item>     

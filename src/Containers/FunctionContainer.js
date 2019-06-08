@@ -12,15 +12,9 @@ const mapStateToProps = (state, {match: {params}} ) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return ({
-        townSelect: (id) => {dispatch(townSelect(id))}
-    })
-};
-
 const FunctionContainer = compose(
     withRouter,
-    connect(mapStateToProps, mapDispatchToProps)
+    connect(mapStateToProps, {townSelect})
 )(FunctionComponent);
 
 export default FunctionContainer;

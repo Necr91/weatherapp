@@ -18,7 +18,8 @@ export default function weatherApp(state = initialState, actions) {
         case TOWN_SELECT:
             return {
                 
-                loading: true,
+                ...state,
+                loading: actions.loading,
                 id: actions.id
             };
         default:

@@ -1,19 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { List, Loader, Container, Segment, Header } from 'semantic-ui-react';
 
 const FunctionComponent = ({data, loading, id, townSelect}) => {
-    const [init, setInit] = useState(false);
-
-    useEffect(() => {
-        if (!init) {
-            townSelect(id);
-            setInit(true);
-        }
-    }, [init, townSelect, id]);
 
     useEffect(() => {
         townSelect(id)
-    }, [id, townSelect]);
+    }, [id]);
     
     return (
         loading
