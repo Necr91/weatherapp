@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { List, Loader, Container, Segment, Header } from 'semantic-ui-react';
 
 const FunctionComponent = ({data, loading, id, townSelect}) => {
@@ -30,6 +31,13 @@ const FunctionComponent = ({data, loading, id, townSelect}) => {
             </Container>
         </div>
     );
-}
+};
+
+FunctionComponent.propTypes = {
+    data: PropTypes.object,
+    loading: PropTypes.bool,
+    id: PropTypes.string,
+    townSelect: PropTypes.func
+};
 
 export default FunctionComponent;

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { List, Loader, Container, Segment, Header } from 'semantic-ui-react';
 
-class ClasComponent extends Component {
+class ClassComponent extends Component {
 
     componentDidMount() {        
         this.props.townSelect(this.props.id)               
@@ -34,4 +35,11 @@ class ClasComponent extends Component {
     }
 }
 
-export default ClasComponent;
+ClassComponent.propTypes = {
+    data: PropTypes.object,
+    loading: PropTypes.bool,
+    id: PropTypes.string,
+    townSelect: PropTypes.func
+};
+
+export default ClassComponent;

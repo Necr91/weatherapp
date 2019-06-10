@@ -10,16 +10,13 @@ export default function weatherApp(state = initialState, actions) {
     switch (actions.type) {
         
         case LOADING_SUCCES:
-            return {
-                ...state,
+            return {                
                 data: actions.data,
-                loading: actions.loading
+                loading: false
             };
         case TOWN_SELECT:
             return {
-                
-                ...state,
-                loading: actions.loading,
+                loading: true,
                 id: actions.id
             };
         default:
