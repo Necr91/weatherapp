@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { List, Loader, Container, Segment, Header } from 'semantic-ui-react';
-import { townSelect } from '../actions/index'
 
-const mapStateToProps = state => {
-    return {
-        data: state.data,
-        loading: state.loading
-    };
-};
-class WeatherDataContainer extends Component {
-    componentDidMount() {
-        this.props.townSelect();
+class ClassComponent extends Component {
+
+    componentDidMount() {        
+        this.props.townSelect(this.props.id)               
     }
+
     render() {
         return (
             this.props.loading
@@ -40,6 +35,11 @@ class WeatherDataContainer extends Component {
     }
 }
 
-WeatherDataContainer = connect(mapStateToProps, {townSelect})(WeatherDataContainer);
+ClassComponent.propTypes = {
+    data: PropTypes.object,
+    loading: PropTypes.bool,
+    id: PropTypes.string,
+    townSelect: PropTypes.func
+};
 
-export default WeatherDataContainer;
+export default ClassComponent;

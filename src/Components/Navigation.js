@@ -8,10 +8,12 @@ let Navigation = () => {
         { 'New York': '5128638' },
         { 'Moscow': '524901' },
         { 'Tokyo': '1850147' }
-    ]           
+    ];
+    const typeOfComponent = "function";
             
     return (        
         <Grid columns={5} centered>
+            
             {towns.map((item, index) => {
                 return (
                     <Grid.Column textAlign='center' key={index}>
@@ -20,8 +22,9 @@ let Navigation = () => {
                             <List.Item>            
                                 <List.Content>
                                     <List.Header 
-                                    id={Object.values(item)} as={Link} to={`/${Object.values(item)}`}>
-                                    {Object.keys(item)}
+                                        id={Object.values(item)}
+                                        as={Link} to={`/${typeOfComponent}/${Object.values(item)}`}
+                                    >{Object.keys(item)}
                                     </List.Header>
                                 </List.Content>
                             </List.Item>     
