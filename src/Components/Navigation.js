@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom';
 import { Grid, List, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
-let Navigation = () => {
+const mapStateToProps = state => {
+    return {
+        root: state.get('root')
+    };
+};
+
+let Navigation = (root) => {
     const towns = [        
         { 'New York': '5128638' },
         { 'Moscow': '524901' },
         { 'Tokyo': '1850147' }
     ];
-    const typeOfComponent = "function";
             
     return (        
         <Grid columns={5} centered>
-            
             {towns.map((item, index) => {
                 return (
                     <Grid.Column textAlign='center' key={index}>
@@ -23,7 +27,7 @@ let Navigation = () => {
                                 <List.Content>
                                     <List.Header 
                                         id={Object.values(item)}
-                                        as={Link} to={`/${typeOfComponent}/${Object.values(item)}`}
+                                        as={Link} to={`${root.root}/${Object.values(item)}`}
                                     >{Object.keys(item)}
                                     </List.Header>
                                 </List.Content>
@@ -36,6 +40,6 @@ let Navigation = () => {
     )
 }
 
-Navigation = connect()(Navigation);
+Navigation = connect(mapStateToProps)(Navigation);
 
 export default Navigation;
