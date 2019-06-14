@@ -6,7 +6,7 @@ import ClassComponent from '../Components/ClassComponent'
 
 const mapStateToProps = (state, {match: {params}} ) => {
     return {
-        data: state.get('data'),
+        data: state.get('data').toJS(),
         loading: state.get('loading'),
         id: params.id
     };

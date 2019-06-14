@@ -12,7 +12,7 @@ export const SET_ROOT = 'SET_ROOT';
 export function setRoot(root) {
     return {
         type: SET_ROOT,
-        root
+        root: root
     }
 }
 
