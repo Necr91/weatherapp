@@ -6,7 +6,7 @@ import { loadWeatherData, setRoot } from '../actions/index'
 
 const mapStateToProps = (state, {match: {params}} ) => {
     return {
-        data: state.get('data').toJS(),
+        data: state.get('data'),
         loading: state.get('loading'),
         id: params.id,
         root: state.get('root')

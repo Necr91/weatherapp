@@ -21,13 +21,13 @@ const FunctionComponent = ({data, loading, id, loadWeatherData, setRoot, root}) 
     :
         <div>
             <Container text >
-                <Header size='huge' textAlign='center' attached='top' block>{data.name}</Header>
+                <Header size='huge' textAlign='center' attached='top' block>{data.get('name')}</Header>
                 <Segment raised attached textAlign='center' color='black'>
                     <List size='massive'>
-                        <List.Item>Погода: {data.weather.map(item => ( `${item.description}, `))}</List.Item>
-                        <List.Item>Температура: {data.main.temp} &deg;C,</List.Item>
-                        <List.Item>Давление воздуха: {data.main.pressure} мм рт. ст.,</List.Item>
-                        <List.Item>Скорость ветра: {data.wind.speed} м/с</List.Item>                        
+                        <List.Item>Погода: {data.get('weather').map(item => ( `${item.get('description')}, `))}</List.Item>
+                        <List.Item>Температура: {data.get('main').get('temp')} &deg;C,</List.Item>
+                        <List.Item>Давление воздуха: {data.get('main').get('pressure')} мм рт. ст.,</List.Item>
+                        <List.Item>Скорость ветра: {data.get('wind').get('speed')} м/с</List.Item>                        
                     </List>
                 </Segment>
             </Container>

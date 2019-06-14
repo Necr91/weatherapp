@@ -19,13 +19,13 @@ class ClassComponent extends Component {
         :
             <div>
                 <Container text >
-                    <Header size='huge' textAlign='center' attached='top' block>{this.props.data.name}</Header>
+                    <Header size='huge' textAlign='center' attached='top' block>{this.props.data.get('name')}</Header>
                     <Segment raised attached textAlign='center' color='black'>
                         <List size='massive'>
-                            <List.Item>Погода: {this.props.data.weather.map(item => ( `${item.description}, `))}</List.Item>
-                            <List.Item>Температура: {this.props.data.main.temp} &deg;C,</List.Item>
-                            <List.Item>Давление воздуха: {this.props.data.main.pressure} мм рт. ст.,</List.Item>
-                            <List.Item>Скорость ветра: {this.props.data.wind.speed} м/с</List.Item>                        
+                            <List.Item>Погода: {this.props.data.get('weather').map(item => `${item.get('description')}, `)}</List.Item>
+                            <List.Item>Температура: {this.props.data.get('main').get('temp')} &deg;C,</List.Item>
+                            <List.Item>Давление воздуха: {this.props.data.get('main').get('pressure')} мм рт. ст.,</List.Item>
+                            <List.Item>Скорость ветра: {this.props.data.get('wind').get('speed')} м/с</List.Item>                        
                         </List>
                     </Segment>
                 </Container>
